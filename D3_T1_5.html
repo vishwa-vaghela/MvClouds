@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <form onsubmit="TaskOutput();return false;">
+            Task1:
+            <br>
+            <input type="text" id="task1" placeholder="Enter a string">
+            <br>
+            Task2:
+            <br>
+            <input type="number" id="task2" placeholder="Enter a number">
+            <br>
+            Task3:
+            <br>
+            <input type="text" id="task3" placeholder="Enter a string">
+            <br>
+            Task4:
+            <br>
+            <input type="number" id="task4" placeholder="Enter a number to create table">
+            <br>
+            Task5:
+            <br>
+            <input type="number" id="task5" placeholder="Enter a 2 digit number">
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <div id="output">
+
+    </div>
+    <script>
+         function TaskOutput(){
+            output=document.getElementById("output");
+            //Task 1
+            task1=document.getElementById("task1").value;
+            output.innerHTML='Task 1 <br>';
+            output.innerHTML+=task1+" "+"something <br>";
+            //Task2 
+            task2=document.getElementById("task2").value;
+            var count=0;
+            for ( let i=0;i<task2.length;i++){
+                count++;
+            }
+            output.innerHTML+='Task 2 <br>';
+            output.innerHTML+='Number of digits:-'+count+'<br>';
+            //Task 3
+            task3=document.getElementById("task3").value;
+            output.innerHTML+='Task 3 <br>';
+            var flag=false;
+            for ( let i=0;i<task3.length-1;i++){
+                var data=task3[i]+task3[i+1];
+                if(data='ee'){
+                    flag=true;
+                    break;
+                }
+            }
+            if(flag=true){
+                output.innerHTML+='Contains ee:-true <br>';
+            }
+            else{
+                output.innerHTML+='Does not contain ee:-false <br>';
+            }
+            //Task 4
+            task4=document.getElementById("task4").value;
+            output.innerHTML+='Task 4: <br>'
+            for( let i=1;i<=10;i++){
+                output.innerHTML+=task4+'*'+i+'='+i*task4+'<br>';
+                console.log(task4+'*'+i+'='+i*task4)
+            }
+            //Task5
+            task5=document.getElementById("task5").value;
+            output.innerHTML+='Task 5: <br>'
+            var swap=0;
+            swap=task5[1]+task5[0];
+            if(swap>task5){
+                output.innerHTML+='true <br>';
+            }
+            else{
+                output.innerHTML+='false <br>';
+            }
+            console.log(count);
+        }
+        
+    </script>
+</body>
+</html>

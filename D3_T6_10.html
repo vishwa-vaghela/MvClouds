@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <form onsubmit="TaskOutput();return false;">
+            Task 6:
+            <br>
+            <label>Number1:</label>
+            <input type="number" placeholder="Enter Number 1" id="num1">
+            <br>
+            <label>Number2:</label>
+            <input type="number" placeholder="Enter Number 2" id="num2">
+            <br>
+            Task 7:
+            <br>
+            <input type="float" placeholder="Enter Number " id="task7">
+            <br>
+            Task 8:
+            <br>
+            <input type="text" placeholder="Enter string" id="task8">
+            <br>
+            Task 9:
+            <br>
+            <input type="text" placeholder="Enter string" id="task9">
+            <br>
+            Task 10:
+            <br>
+            <input type="text" placeholder="Enter string" id="task10">
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="output"></div>
+        <script>
+            function TaskOutput(){
+                output=document.getElementById("output");
+                //Task 6
+                output.innerHTML='Task 6 <br>';
+                num1=document.getElementById("num1").value;
+                num2=document.getElementById("num2").value;
+                deno=2**num2;
+                ans=Math.floor(num1/deno);
+                console.log(ans)
+                output.innerHTML+=ans+'<br>';
+                //Task 7
+                output.innerHTML+='Task 7 <br>';
+                task7=document.getElementById("task7").value;
+                console.log(parseFloat(task7))
+                output.innerHTML+="New Number:-"+task7+"<br>";
+                //Task 8
+                output.innerHTML+='Task 8 <br>';
+                task8=document.getElementById("task8").value;
+                var count=0;
+                for(let i=0;i<task8.length;i++){
+                    if(task8[i]=='a'||task8[i]=='e'||task8[i]=='i'||task8[i]=='o'||task8[i]=='u'){
+                        count++;
+                    }
+                }
+                console.log(count)
+                output.innerHTML+="No of vowels:-"+count+'<br>';
+                //Task 9
+                output.innerHTML+='Task 9 <br>';
+                task9=document.getElementById("task9").value;
+                var str1='';
+                var str2='';
+                for(let i=0;i<task9.length;i++){
+                    if(task9[i].charCodeAt()<=90 && task9[i].charCodeAt()>=65){
+                        str1+=task9[i];
+                        console.log(task9[i].charCodeAt());
+                    }
+                    else{
+                        str2+=task9[i];
+                    }
+                }
+                console.log(str1)
+                console.log(str2)
+                output.innerHTML+="New string is:-"+str1+str2+"<br>";
+                //Task 10
+                output.innerHTML+='Task 10 <br>';
+                task10=document.getElementById("task10").value;
+                arr=task10.split("");
+                console.log(arr);
+                for(let i=0;i<arr.length;i++){
+                    for(let j=0;j<i;j++){
+                        if(arr[i]<arr[j]){
+                            var a = arr[i];
+                            arr[i] = arr[j];
+                            arr[j] = a;
+                        }
+                    }
+                }
+                output.innerHTML+="New String:-"+arr.join("")+"<br>";
+                
+    //Trying using Ascii value itself
+
+     //           var str='';
+      //          for(let k=0;k<task10.length;k++)
+        //        var min='';
+          //      for(let i=0;i<task10.length;i++){
+            //        for(let j=i+1;j<task10.length;j++){
+              //          if(task10[i].charCodeAt()>task10[j].charCodeAt()){
+                //            min=task10[j]
+                  //      }
+                    //}
+              //  }
+                //console.log(min)
+            }
+        </script>
+    </div>
+</body>
+</html>

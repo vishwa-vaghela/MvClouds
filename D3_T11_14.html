@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="TaskOutput();return false;">
+        Task 11:
+        <br>
+        <label>Number1:</label>
+        <input type="number" placeholder="Enter Number 1" id="num1">
+        <br>
+        <label>Number2:</label>
+        <input type="number" placeholder="Enter Number 2" id="num2">
+        <br>
+        Task 12:
+        <br>
+        <input type="number" placeholder="Enter Number " id="task12">
+        <br>
+        Task 13:
+        <br>
+        <input type="text" placeholder="Enter String" id="task13">
+        <br>
+        Task 14:
+        <br>
+        <input type="text" placeholder="Enter String as space seprated number" id="task14">
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+    <div id="output"></div>
+    <script>
+        function TaskOutput(){
+            output=document.getElementById("output");
+            //Task11
+            output.innerHTML='Task 11 <br>';
+            num1=document.getElementById("num1").value;
+            num2=document.getElementById("num2").value;
+            var num=Number(num1)+Number(num2);
+            while(true){    
+                var sum=0;
+                num=num.toString();
+                for(let i=0;i<num.length;i++){
+                    sum+=Number(num[i])
+                }
+                num=sum;
+                if(num.toString().length=1){
+                    break;
+                }
+            }
+            output.innerHTML+="sum:-"+num+"<br>";
+            //Task12
+            output.innerHTML+='Task 12 <br>';
+            task12=document.getElementById("task12").value;
+            var factors=[];
+            for(let i=1;i<=Number(task12);i++){
+                if((task12)%i==0){
+                    console.log(i)
+                    factors.push(i);
+                }
+            }
+            output.innerHTML+="The factors are:-"+JSON.stringify(factors)+"<br>";
+            //Task13
+            output.innerHTML+='Task 13 <br>';
+            task13=document.getElementById("task13").value;
+            var str=''
+            for(let i=0;i<task13.length;i++){
+                if(task13[i].charCodeAt()%2==0){
+                    str+=task13[i].toUpperCase();
+                }
+                else{
+                    str+=task13[i].toLowerCase();
+                }
+            }
+            output.innerHTML+="New string is:-"+str+"<br>";
+            //Task14
+            output.innerHTML+='Task 14 <br>';
+            task14=document.getElementById("task14").value;
+            var arr=task14.split(" ");
+            var min=Number(arr[0]);
+            var max=Number(arr[0]);
+            console.log(min)
+            for(let i=1;i<arr.length;i++){
+                if(Number(arr[i])<=min){
+                    min=Number(arr[i])
+                }
+                if(Number(arr[i])>=max){
+                    max=Number(arr[i])
+                }
+            }
+            output.innerHTML+=max+" "+min+"<br>";
+        }
+    </script>
+</body>
+</html>
