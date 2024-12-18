@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keyframe Animations</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background: #f3f3f3;
+    }  
+    #animated-box {
+        width: 100px;
+        height: 100px;
+        background:plum;
+        margin: 20px;
+    }  
+    .button-container button {
+        margin: 10px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color:cornflowerblue;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    /* Applying styling by shifting the position*/
+    @keyframes animation1 {
+        0% { 
+            transform: translateX(0); 
+        }
+        50% { 
+            transform: translateX(200px); background-color: orangered; 
+        }
+        100% { 
+            transform: translateX(0); 
+        }
+    }
+    /* Applying styling by shifting the size*/
+    @keyframes animation2 {
+        0% { 
+            transform: scale(1); 
+        }
+        50% { 
+            transform: scale(1.5); background-color: palevioletred; 
+        }
+        100% { 
+            transform: scale(1); 
+        }
+    }
+    /* Applying styling by rotating the position*/
+    @keyframes animation3 {
+        0% { 
+            transform: rotate(0deg); 
+        }
+        50% { 
+            transform: rotate(180deg); background-color:rebeccapurple; 
+        }
+        100% { 
+            transform: rotate(360deg); 
+        }
+    }  
+    /* Default animation */
+    #animated-box {
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-name: none;
+    }      
+  </style>
+</head>
+<body>
+  <div id="animated-box"></div>
+  <div class="button-container">
+    <button onclick="applyAnimation('animation1')">Animation 1</button>
+    <button onclick="applyAnimation('animation2')">Animation 2</button>
+    <button onclick="applyAnimation('animation3')">Animation 3</button>
+  </div>
+
+  <script>
+    function applyAnimation(animationName1) {
+        //const box = document.getElementById('animated-box');
+        //box.className = '';
+        //void box.offsetWidth;
+        //box.classList.add('animate', animationName);
+       if(animationName1=='animation1'){
+            console.log("animation"+animationName1)
+            const box = document.getElementById('animated-box');
+            console.log(box)
+            box.style.animationName=animationName1
+            console.log(box.style.animationName)
+        }
+        if(animationName1=='animation2'){
+            console.log("animation"+animationName1)
+            const box = document.getElementById('animated-box');
+            console.log(box)
+            box.style.animationName=animationName1
+            console.log(box.style.animationName)
+        }
+        if(animationName1=='animation3'){
+            console.log("animation"+animationName1)
+            const box = document.getElementById('animated-box');
+            console.log(box)
+            box.style.animationName=animationName1
+            console.log(box.style.animationName)
+        }
+     }
+  </script>
+</body>
+</html>

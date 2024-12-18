@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modified Table</title>
+    <style>
+        table {
+            border-spacing: 0px;
+            border-collapse: collapse;
+        }
+        td {
+            border: 2px solid black;
+            padding: 12px;
+        }
+        .container {
+            height: 90vh;
+            width: 90vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .half-height {
+            height: 16.7%;
+        }
+        .one-third-height {
+            height: 33.33%;
+        }
+        .two-third-width {
+            width: 66%;
+        }
+        .half-width {
+            width: 34%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <table style="height: 50%; width: 50%;">
+            <tr class="half-height">
+                <td class="half-width"></td>
+                <td colspan="2"></td>
+            </tr>
+            <tr class="one-third-height">
+                <td colspan="2" class="two-third-width" rowspan="2"></td>
+                <td rowspan="2"></td>
+            </tr>
+            <tr></tr>
+            <tr class="one-third-height">
+                <td rowspan="2"></td>
+                <td colspan="2" rowspan="2"></td>
+            </tr>
+            <tr></tr>
+            <tr class="half-height">
+                <td colspan="3"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

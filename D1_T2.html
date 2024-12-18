@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        table{
+            border: 20px solid rgb(2, 107, 146);
+        }
+        p{
+            margin: 10px;
+            padding: 0px;
+        }
+        label{
+            color:rgb(4, 181, 143);
+            font-weight: bold;
+            font-size: large;
+        }
+        #email-input{
+            width: 100%;
+        }
+        #button-range{
+            border-radius: 3px;
+            background-color:rgb(6, 203, 161);
+        }
+        #button-create{
+            border-radius: 3px;
+            background-color:rgb(6, 203, 161);
+            height: 35px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+    <form>
+        <tr>
+            <td colspan="2" style="text-align: center;background-color: lightgrey;height:50px;"><b>Create Account</b></td>
+        </tr>
+        <tr>
+            <td>
+                <p><label for="fstname">First name*:</label></p>
+                <p><input name="fstname" type="text" placeholder="enter your first name" required></p>
+            </td>
+            <td>
+                <p><label for="lstname">Last name:</label></p>
+                <p><input name="lstname" type="text" placeholder="enter your last name"></p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <p><label for="email">Email*:</label></p>
+                <p><input id="email-input" name="email" type="email" placeholder="enter your email" required></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p><label for="pass">Password*:</label></p>
+                <p><input name="pass" type="password" placeholder="enter your Password" required></p>
+            </td>
+            <td>
+                <p><label for="c_pass">Confirm Password*:</label></p>
+                <p><input name="c_pass" type="password" placeholder="enter your Confirm Pass" required></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p><label for="gender">Gender</label></p>
+                <p><input type="radio" name="gender" value="Male">Male
+                   <input type="radio" name="gender" value="Female">Female</p>
+            </td>
+            <td>
+                <p><label for="hob">Hobbies:</label></p>
+                <p><input type="checkbox" name="hob" value="Music">Music
+                    <input type="checkbox" name="hob" value="Sports">Sports
+                    <input type="checkbox" name="hob" value="Travel">Travel
+                    <input type="checkbox" name="hob" value="Movies">Movies</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>
+                    <label for="dropdown">Source of income:</label>
+                </p>
+                <p> <select name="dropdown">
+                    <option selected>Employed</option>
+                    <option>Option1</option>
+                    <option>Option2</option>
+                    <option>Option3</option>
+                    <option>Option4</option>
+                    </select>
+                </p>
+            </td>
+            <td>
+                <p><label for="income">Income:</label></p>
+                <p><input type="range" min="0" max="20000">
+                <button id="button-range">20K</button></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p><label for="profile">Upload Profile:</label></p>
+                <p><input type="file" name="profile"></p>
+            </td>
+            <td>
+                <p><label for="age">Age:</label></p>
+                <p><input name="age" type="number"></p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <p><label for="bio">Bio:</label></p>
+                <p><textarea rows="3"
+                    cols="80"></textarea></p>
+            </td>
+        </tr>
+        <tr style="background-color: lightgrey;">
+            <td style="text-align: right;height:50px;" colspan="2">
+                <button id="button-create">Create</button>
+            </td>
+        </tr>
+    </form>
+</table>
+</body>
+</html>
