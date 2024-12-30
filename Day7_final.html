@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Circles</title>
+    <style>
+        .circle {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            position: absolute;
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #circle1 {
+            background-color: red;
+            top: 50px;
+            left: 50px;
+        }
+        #circle2 {
+            background-color: blue;
+            top: 50px;
+            left: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div id="circle1" class="circle" draggable="true"></div>
+    <div id="circle2" class="circle"></div>
+
+    <script>
+        var count=0;
+        const circle1 = document.getElementById('circle1');
+        const circle2 = document.getElementById('circle2');
+
+        circle1.addEventListener('dragstart', function(e) {
+            e.dataTransfer.setData('text/plain', null);
+        });
+
+        circle2.addEventListener('dragover', function(e) {
+            e.preventDefault();
+        });
+
+        circle2.addEventListener('drop', function(e) {
+            var newcolor=getRandomColor();
+            e.preventDefault();
+            console.log(count)
+            console.log(circle1.style.backgroundColor)
+            const newCircle = document.createElement('div');
+            newCircle.className = 'circle';
+            newCircle.style.width = (e.target.offsetWidth - 20) + 'px';
+            newCircle.style.height = (e.target.offsetHeight - 20) + 'px';
+            if(circle1.style.backgroundColor==''){
+                newCircle.style.backgroundColor ='red';
+            }
+            else{
+                newCircle.style.backgroundColor = circle1.style.backgroundColor;
+            }
+            newCircle.draggable = true;
+            
+            circle2.appendChild(newCircle);
+            circle1.style.width = '300px';
+            circle1.style.height = '300px';
+            circle1.style.backgroundColor = newcolor;
+            circle1 = newCircle;
+            count++;
+        });
+
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+    </script>
+</body>
+</html>
