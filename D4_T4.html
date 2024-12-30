@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: bisque;
+        }
+        input{
+            width: 50%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        Time remaining for break to start:-
+        <br>
+        <form onsubmit="Countdown();return false;">
+            <input type='text' placeholder="Enter the time rn" id="ent_time">
+            <button type="submit">Submit</button>
+        </form>
+        <br>
+        <div id="output"></div>
+    </div>
+    <script>
+        function Countdown(){
+            var data=document.getElementById("ent_time").value;
+            var date2=new Date(data).getTime();
+            setInterval(
+            function (){
+                var date=new Date().getTime();
+            console.log(date)
+            
+            console.log(date2)
+            var time_left=date2-date;
+            var hours=Math.floor((time_left% (1000 * 60 * 60 * 24))/(1000*60*60))
+            console.log(hours)
+            var mins=Math.floor((time_left% (1000 * 60 * 60 ))/(1000*60))
+            var secs=Math.floor((time_left% (1000 * 60 ))/1000)
+            document.getElementById("output").innerHTML =hours + "h " +mins + "m " + secs + "s ";
+            },1000)
+            
+        }
+    </script>
+</body>
+</html>

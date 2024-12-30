@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-top: 150px;
+            margin-left:600px;
+            background-color: aliceblue;
+            border: 4px solid rgb(108, 2, 161);
+            border-radius: 40px;
+            height: 400px;
+            width: 300px;
+        }
+        input{
+            width: 250px;
+            border-radius: 4px;
+        }
+        input{
+            width: 250px;
+            border-radius: 4px;
+        }
+        label{
+            font-size: 17px;
+        }
+        button{
+            height: 30px;
+            width: 70px;
+            background-color: aliceblue;
+            border-radius: 4px;
+            font-size: 15px;
+        }
+        a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Registration page</h1>
+        <br>
+        <form onsubmit="Checkval();return false">
+            <label>Username:</label>
+            <br>
+            <input type="text" placeholder="Enter your name" id="username">
+            <br><br>
+            <label>Email:</label>
+            <br>
+            <input type="email" placeholder="Enter your email" id="email">
+            <br><br>
+            <label>Password:</label>
+            <br>
+            <input type="password" placeholder="Enter your password" id="pass">
+            <br><br>
+            <label>Confirm Password:</label>
+            <br>
+            <input type="password" placeholder="Enter your  confirm password" id="cpass">
+            <br><br>
+            <button type="submit"><a href="D4_T2_rec.html">Register</a></button>
+        </form>
+    </div>
+    <script>
+        function Checkval(){
+            var user_in=document.getElementById("username").value;
+            var pass_in=document.getElementById("pass").value;
+            var cpass_in=document.getElementById("cpass").value;
+            var email_in=document.getElementById("email").value;
+            var user=/[a-zA-Z]{6,15}/;
+            var pass=/[A-Z]{1,}[a-z]{1,}[0-9]{1,}/;
+            var cpass=/[A-Z]{1,}[a-z]{1,}[0-9]{1,}/;
+            var email=/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            console.log(user_in)
+            console.log(user.test(user_in)+"1")
+            localStorage.setItem("username",user_in)
+            localStorage.setItem("password",pass_in)
+            if(user_in==''||pass_in==''||cpass_in==''||email_in==''){
+                alert("All the feilds are mendatory!!");
+            }
+            else if(user.test(user_in)==false){
+                alert("Enter a valid username consisting of 15 char and alphabets only!!");
+            }
+            else if(pass.test(pass_in)==false||pass_in.length<8){
+                alert("Enter a valid pass consisting of 8 char and one or more digit,small and capital letters!!");
+            }
+            else if(cpass.test(cpass_in)==false||cpass_in.length<8){
+                alert("Enter a valid pass consisting of 8 char and one or more digit,small and capital letters!!");
+            }
+            else if(pass_in!=cpass_in){
+                alert("Enter the same password!!")
+            }
+            else if(email.test(email_in)==false){
+                alert("Enter a valid email address!!");
+            }
+            else{
+                window.location.href="D4_T2_rec.html";
+            }
+
+        }
+    </script>
+</body>
+</html>

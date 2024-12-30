@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: bisque;
+        }
+        input{
+            width: 50%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        Countdown to the next date:-
+        <br>
+        <form onsubmit="Countdown();return false;">
+            <input type='text' placeholder="Enter the date in format(Oct 29, 2024 13:37:25)" id="ent_date">
+            <button type="submit">Submit</button>
+        </form>
+        <br>
+        <div id="output"></div>
+    </div>
+    <script>
+        function Countdown(){
+            var data=document.getElementById("ent_date").value;
+            var date2=new Date(data);
+            setInterval(
+            function (){    
+                var date=new Date();
+                console.log(date)
+                console.log(date2)
+                var time_left=date2.getTime()-date.getTime();
+                console.log(time_left);
+                var days=Math.floor(time_left/(1000*24*60*60));
+                console.log(days)
+                var hours=Math.floor((time_left% (1000 * 60 * 60 * 24))/(1000*60*60))
+                console.log(hours)
+                var mins=Math.floor((time_left% (1000 * 60 * 60 ))/(1000*60))
+                var secs=Math.floor((time_left% (1000 * 60 ))/1000)
+                document.getElementById("output").innerHTML =days + "d " + hours + "h " +mins + "m " + secs + "s ";
+            },1000)
+        }
+        
+        
+    </script>
+</body>
+</html>

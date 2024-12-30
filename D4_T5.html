@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        Enter your string on mubers in ascending order:-
+        <br>
+        <form onsubmit="StringOutput();return false;">
+            <input type='text' placeholder="Enter the string" id="ent_str">
+            <button type="submit">Submit</button>
+        </form>
+        <br>
+        <div id="output"></div>
+    </div>
+    <script>
+        function StringOutput(){
+            var data=document.getElementById("ent_str").value;
+            var first=data[0]
+            var last=data.slice(-1);
+            var count=0;
+            var new_str='';
+            for(let i=first;i<=last;i++){
+                if(i==data.charAt(count)){
+                    new_str+=i;
+                    count++;
+                }
+                else{
+                    new_str+=" ";   
+                }
+            }
+            console.log(new_str);
+            document.getElementById("output").innerHTML="New String will be <br>"+new_str;
+        }
+    </script>
+</body>
+</html>

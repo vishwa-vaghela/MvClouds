@@ -1,0 +1,168 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+    th, td {
+      padding: 8px;
+      text-align: center;
+    }
+    img {
+      max-width: 100px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Image Table Viewer</h1>
+  <input type="file" id="csv_file">
+  <table id="image_table">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Download</th>
+      </tr>
+    </thead>
+    <tbody id="table_body">
+    </tbody>
+  </table>
+
+  <script>
+    document.getElementById('csv_file').addEventListener('change', function(event) {
+      var file = event.target.files[0];
+      if (file) {
+        console.log(1)
+        var read = new FileReader();
+        read.onload = function(e) {
+          var data = e.target.result;
+          console.log(data+"2")
+          var rows = data.split('\n');
+          console.log(rows+"2")
+          var tablebody = document.getElementById("table_body");
+          rows.forEach(row => {
+            var url = row.trim();
+            if (url) {
+                console.log(url)
+                const img = new Image();
+              img.src = url;
+              img.onload = function () {
+                tablebody.innerHTML+=
+                `<tr>
+                    <td><img src="${url}"></td>
+                    <td><a href="${url}" download >Download</a></td>
+                  </tr>`;
+              }
+                
+            }
+          });
+        };
+        read.readAsText(file);
+      }
+    });
+  </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+    th, td {
+      padding: 8px;
+      text-align: center;
+    }
+    img {
+      max-width: 100px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Image Table Viewer</h1>
+  <input type="file" id="csv_file">
+  <table id="image_table">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Download</th>
+      </tr>
+    </thead>
+    <tbody id="table_body">
+    </tbody>
+  </table>
+
+  <script>
+    document.getElementById('csv_file').addEventListener('change', function(event) {
+      var file = event.target.files[0];
+      if (file) {
+        var read = new FileReader();
+        read.onload = function(e) {
+          var data = e.target.result;
+          var rows = data.split('\n');
+          var tablebody = document.getElementById("table_body");
+          rows.forEach(row => {
+            var url = row.trim();
+            if (url) {
+              const img = new Image();
+              img.src = url;
+              img.onload = function () {
+                tablebody.innerHTML +=
+                `<tr>
+                  <td><img src="${url}" alt="Image"></td>
+                  <td><a href="#" onclick="downloadimage('${url}')">Download</a></td>
+                </tr>`;
+              };
+            }
+          });
+        };
+        read.readAsText(file);
+      }
+    });
+    function downloadimage(url) {
+      fetch(url)
+        .then(response => response.blob())
+        .then(blob => {
+          const link = document.createElement('a');
+          const objectUrl = URL.createObjectURL(blob);
+          link.href = objectUrl;
+          link.download = url.split('/').pop();
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          URL.revokeObjectURL(objectUrl);
+        })
+        .catch(error => {
+          console.error('Error downloading the image:', error);
+        });
+    }
+  </script>
+</body>
+</html>
+
+
